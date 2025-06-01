@@ -75,9 +75,6 @@ function GamesPage() {
           ))}
         </div>
       </section>
-      <footer className="copyright-bar">
-        © {new Date().getFullYear()} Arcade Nexus &middot; GameSphere. All rights reserved.
-      </footer>
     </div>
   );
 }
