@@ -12,10 +12,10 @@
 body {
   margin: 0;
   font-family: 'Inter', 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  /* Set the gaming background globally */
-  background-image: url('./assets/gaming_bg.jpg');
+  /* Set the gaming background globally: use gaming_bg_sample.jpg */
+  background-image: url('./assets/gaming_bg_sample.jpg');
   background-size: cover;
-  background-position: center;
+  background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-color: var(--kavia-dark);
