@@ -60,6 +60,8 @@ function PaymentPage() {
     return false;
   })();
 
+  const navigate = useNavigate();
+
   function handleSubmit(e) {
     e.preventDefault();
     setTouched({ payment: true });
@@ -69,10 +71,13 @@ function PaymentPage() {
       return;
     }
     setFormError("");
-    // Advance to "next step" (e.g., show confirmation, simulate payment, etc.)
-    // For now, just alert and/or later invoke navigation as needed
-    alert("Payment processed! (Mock implementation)");
-    // Optionally: navigate or update state for confirmation
+    // Navigate to confirmation page, passing relevant info for thank-you
+    navigate("/confirmation", {
+      state: {
+        from: "payment",
+        game: game,
+      },
+    });
   }
 
   return (
