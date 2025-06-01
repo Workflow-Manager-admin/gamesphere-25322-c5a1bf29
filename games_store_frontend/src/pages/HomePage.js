@@ -1,8 +1,11 @@
 import React from "react";
+import arcadeBg from "../assets/arcade_bg_unsplash.jpg";
 
 // PUBLIC_INTERFACE
 function HomePage() {
-  /** The landing page with a prominent, visually striking, centered welcome description. */
+  /** The landing page with a prominent, visually striking, centered welcome description.
+   * It uses a unique arcade background that visually distinguishes the homepage.
+   */
   return (
     <div
       className="homepage-center-container"
@@ -13,14 +16,37 @@ function HomePage() {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        background: "var(--primary-color, #2121ab)",
-        paddingTop: 0,
-        paddingBottom: 0,
+        /* Override global background with the unique arcade background for homepage only */
+        backgroundImage: `url(${arcadeBg})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundAttachment: "fixed",
+        backgroundColor: "var(--kavia-dark, #1A1A1A)",
+        /* subtle overlay for readability: dark/blue-ish gradient */
         position: "relative",
         textAlign: "center",
+        paddingTop: 0,
+        paddingBottom: 0,
+        zIndex: 2,
       }}
     >
-      <div>
+      {/* Overlay for text readability */}
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          zIndex: 1,
+          background:
+            "linear-gradient(135deg, rgba(22,33,62,0.74) 0%, rgba(33,33,171,0.52) 60%, rgba(204,170,187,0.17) 100%)",
+          pointerEvents: "none",
+        }}
+        aria-hidden="true"
+      />
+      <div style={{ position: "relative", zIndex: 2 }}>
         <h1
           className="homepage-title"
           style={{
