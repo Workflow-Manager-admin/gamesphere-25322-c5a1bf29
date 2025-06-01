@@ -7,6 +7,27 @@ import { AuthProvider, default as AuthContext } from "./components/AuthContext";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import GamesPage from "./pages/GamesPage";
+import BuyerDetailsPage from "./pages/BuyerDetailsPage";
+// PaymentPage can be just a placeholder for navigation
+function PaymentPage() {
+  return (
+    <div
+      style={{
+        minHeight: "calc(100vh - 128px)",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        background: "var(--primary-color, #2121ab)",
+        paddingTop: "60px",
+        color: "#fff",
+      }}
+    >
+      <h2 style={{ fontSize: "2.0rem", margin: "12px 0" }}>Payment Page</h2>
+      <p>This is a stub for payment step.</p>
+    </div>
+  );
+}
 
 /**
  * Route wrapper which redirects unauthenticated users to /login.
@@ -38,6 +59,24 @@ function App() {
                 element={
                   <PrivateRoute>
                     <GamesPage />
+                  </PrivateRoute>
+                }
+              />
+              {/* Add new buyer details page route; must be private */}
+              <Route
+                path="/buy"
+                element={
+                  <PrivateRoute>
+                    <BuyerDetailsPage />
+                  </PrivateRoute>
+                }
+              />
+              {/* Payment stub page */}
+              <Route
+                path="/payment"
+                element={
+                  <PrivateRoute>
+                    <PaymentPage />
                   </PrivateRoute>
                 }
               />
