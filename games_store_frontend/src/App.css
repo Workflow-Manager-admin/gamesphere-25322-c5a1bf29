@@ -266,6 +266,54 @@ body::before {
   margin-bottom: 16px;
 }
 
+/* ---- HOMEPAGE HERO OVERRIDES ---- */
+.homepage-center-container {
+  min-height: calc(100vh - 128px);
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--primary-color, #2121ab);
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  padding: 0;
+}
+.homepage-title {
+  font-size: 4rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 36px;
+  letter-spacing: 0.03em;
+  font-family: 'Inter','Arial',sans-serif;
+  text-shadow: 0 7px 32px #18192388, 0 1px 2.5px #000a, 0 0.5px 0 #cf7d44;
+}
+.homepage-description {
+  font-size: 2rem;
+  line-height: 1.44;
+  color: var(--kavia-orange, #E87A41);
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 18px 12px 10px 12px;
+  font-family: 'Inter','Arial',sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  border-radius: 14px;
+  background: rgba(20,22,34,0.56);
+  box-shadow: 0 5px 30px 2px rgba(34,10,34,0.13), 0 1px 9px 0 rgba(255,164,80,0.06);
+  border: 1.5px solid var(--border-color, #fff1);
+}
+@media (max-width: 800px) {
+  .homepage-title {
+    font-size: 2.4rem;
+    margin-bottom: 24px;
+  }
+  .homepage-description {
+    font-size: 1.18rem;
+    padding: 10px 4vw 6px 4vw;
+  }
+}
+
 .btn {
   background-color: var(--kavia-orange);
   color: white;
