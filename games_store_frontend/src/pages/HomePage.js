@@ -15,12 +15,13 @@ function HomePage() {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        // No background override -- let the global CSS handle it!
+        // No background override: let the global App.css set the gaming_bg_sample.jpg!
         position: "relative",
         textAlign: "center",
         paddingTop: 0,
         paddingBottom: 0,
         zIndex: 2,
+        background: "transparent", // Ensures no color override, so background image shows
       }}
     >
       {/* Overlay for text readability */}
