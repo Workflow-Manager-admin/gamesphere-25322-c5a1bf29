@@ -11,14 +11,24 @@ const AuthContext = createContext({
 
 // PUBLIC_INTERFACE
 export function AuthProvider({ children }) {
-  /** Provides mock authentication state and login/logout handlers to descendants. */
-  const [user, setUser] = useState(null);
+  /**
+   * Provides mock authentication state and login/logout handlers to descendants.
+   * The username, if set, will persist in context (across navigation and reloads until app closes).
+   */
+  const [user, setUser] = useState(() => {
+    // No persistence across reloads; initiate as null for new session.
+    return null;
+  });
 
-  // Mock login: set a string as user (username).
-  const login = (username) => setUser(username);
+  // PUBLIC_INTERFACE
+  const login = (username) => {
+    setUser(username);
+  };
 
-  // Mock logout: clear user.
-  const logout = () => setUser(null);
+  // PUBLIC_INTERFACE
+  const logout = () => {
+    setUser(null);
+  };
 
   return (
     <AuthContext.Provider value={{ user, login, logout }}>
