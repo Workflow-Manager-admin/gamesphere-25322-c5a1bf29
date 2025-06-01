@@ -29,10 +29,15 @@ const GAMES = [
 // Use a local placeholder image for all cards
 const PLACEHOLDER_IMAGE = require("../assets/placeholder_game_cover.png");
 
-// PUBLIC_INTERFACE
 function GamesPage() {
   /** Game store grid UI, always shows 12 visually styled cards. */
   const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  function handleBuyNow(gameName) {
+    // Navigate to /buy with gameName as state for form preselect
+    navigate("/buy", { state: { gameName } });
+  }
 
   return (
     <div className="games-page-main">
@@ -61,8 +66,7 @@ function GamesPage() {
                   className="game-card-buy-btn"
                   aria-label={`Buy ${game.name}`}
                   tabIndex={0}
-                  // Demo disables button, purchase coming soon
-                  disabled
+                  onClick={() => handleBuyNow(game.name)}
                 >
                   Buy Now
                 </button>
