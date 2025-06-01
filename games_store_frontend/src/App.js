@@ -28,7 +28,7 @@ function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
-        <div className="app" style={{ background: "var(--primary-color, #2121ab)" }}>
+        <div className="app">
           <Header />
           <Navbar />
           {/* To ensure header/navbar are fixed, offset main context by height */}
