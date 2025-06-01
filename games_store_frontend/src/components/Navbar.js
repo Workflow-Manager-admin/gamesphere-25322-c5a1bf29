@@ -2,9 +2,10 @@ import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import AuthContext from "./AuthContext";
 
-// PUBLIC_INTERFACE
+/**
+ * The navigation bar with Home, Games, and contextual login/user display.
+ */
 function Navbar() {
-  /** The navigation bar with Home, Games, Login/User display. */
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -35,23 +36,29 @@ function Navbar() {
           padding: "0 24px",
         }}
       >
-        {/* Login/User Icon on the left */}
-        <button
-          aria-label={user ? "Account" : "Login"}
-          onClick={() => navigate("/login")}
-          style={{
-            background: "none",
-            border: "none",
-            color: "var(--accent-color, #E87A41)",
-            fontSize: "1.4rem",
-            cursor: "pointer",
-            marginRight: "28px",
-            fontWeight: "bold",
-            outline: "none"
-          }}
-        >
-          {user ? "👤" : "🔐"}
-        </button>
+        {/* Left side: Only shows login icon if NOT logged in */}
+        {!user && (
+          <button
+            aria-label="Login"
+            onClick={() => navigate("/login")}
+            style={{
+              background: "none",
+              border: "none",
+              color: "var(--accent-color, #E87A41)",
+              fontSize: "1.4rem",
+              cursor: "pointer",
+              marginRight: "28px",
+              fontWeight: "bold",
+              outline: "none"
+            }}
+          >
+            🔐
+          </button>
+        )}
+        {/* If logged in, left is just a spacer for layout alignment */}
+        {user && (
+          <div style={{ width: "44px", minWidth: "28px", marginRight: "28px" }} />
+        )}
         {/* Nav center links */}
         <div style={{ display: "flex", gap: "20px" }}>
           <Link
@@ -85,8 +92,18 @@ function Navbar() {
             Games
           </Link>
         </div>
-        {/* Username on the right if logged in */}
-        <div style={{ minWidth: "90px", textAlign: "right", color: "var(--accent-color, #E87A41)", fontWeight: "bold" }}>
+        {/* Username on the right if logged in; blank if not */}
+        <div
+          style={{
+            minWidth: "90px",
+            textAlign: "right",
+            color: "var(--accent-color, #E87A41)",
+            fontWeight: "bold",
+            fontSize: "1.11rem",
+            letterSpacing: "0.05em",
+            whiteSpace: "nowrap",
+          }}
+        >
           {user ? user : ""}
         </div>
       </div>
