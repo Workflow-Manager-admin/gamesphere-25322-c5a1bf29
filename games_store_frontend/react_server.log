@@ -18,3 +18,17 @@ Note that the development build is not optimized.
 To create a production build, use npm run build.
 
 webpack compiled successfully
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/gamesphere-25322-c5a1bf29/games_store_frontend/src'
+ERROR in ./src/App.js 7:0-87
+Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/gamesphere-25322-c5a1bf29/games_store_frontend/src'
+
+ERROR in ./src/components/Navbar.js 6:0-53
+Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/gamesphere-25322-c5a1bf29/games_store_frontend/src/components'
+
+ERROR in ./src/pages/LoginPage.js 7:0-47
+Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/gamesphere-25322-c5a1bf29/games_store_frontend/src/pages'
+
+webpack compiled with 3 errors
