@@ -11,7 +11,7 @@
 
 body {
   margin: 0;
-  font-family: 'Inter', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-family: 'Times New Roman', Times, serif !important;
   /* Set the gaming background globally: use gaming_bg_sample.jpg */
   background-image: url('./assets/gaming_bg_sample.jpg');
   background-size: cover;
