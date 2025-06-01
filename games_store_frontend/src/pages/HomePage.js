@@ -1,10 +1,9 @@
 import React from "react";
-import arcadeBg from "../assets/arcade_bg_unsplash.jpg";
-
+ 
 // PUBLIC_INTERFACE
 function HomePage() {
   /** The landing page with a prominent, visually striking, centered welcome description.
-   * It uses a unique arcade background that visually distinguishes the homepage.
+   * Now follows the global gaming-themed background applied via App.css.
    */
   return (
     <div
@@ -16,14 +15,7 @@ function HomePage() {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        /* Override global background with the unique arcade background for homepage only */
-        backgroundImage: `url(${arcadeBg})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        backgroundAttachment: "fixed",
-        backgroundColor: "var(--kavia-dark, #1A1A1A)",
-        /* subtle overlay for readability: dark/blue-ish gradient */
+        // No background override -- let the global CSS handle it!
         position: "relative",
         textAlign: "center",
         paddingTop: 0,
