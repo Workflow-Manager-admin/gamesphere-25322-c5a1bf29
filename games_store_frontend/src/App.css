@@ -286,3 +286,209 @@ body::before {
   padding: 12px 24px;
   font-size: 1.1rem;
 }
+
+/* --- GAME PAGE MAIN --- */
+.games-page-main {
+  min-height: calc(100vh - 128px);
+  width: 100vw;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  padding-bottom: 72px;
+}
+
+.games-hero {
+  padding-top: 0;
+  padding-bottom: 20px;
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.games-page-main-title {
+  font-size: 2.45rem;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  font-family: 'Inter','Arial',sans-serif;
+  margin: 0 0 10px 0;
+  letter-spacing: 0.02em;
+}
+
+.games-page-main-description {
+  font-size: 1.09rem;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  color: var(--text-secondary);
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+.games-grid-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}
+
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(205px, 1fr));
+  gap: 28px 22px;
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 18px 12px 30px 12px;
+}
+
+.game-card {
+  background: rgba(20,22,34,0.95);
+  border-radius: 18px;
+  box-shadow: 0 6px 22px 2px rgba(27,30,64,0.19), 0 1px 9px 0 rgba(100,66,131,.13);
+  border: 1.7px solid var(--border-color, #fff1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+  min-height: 320px;
+  height: 330px;
+  padding: 18px 10px 16px 10px;
+  position: relative;
+  transition: box-shadow 0.22s, border 0.18s, transform 0.18s;
+  cursor: pointer;
+  z-index: 1;
+  outline: none;
+}
+
+.game-card:hover,
+.game-card:focus {
+  box-shadow: 0 0 0 2.7px #eca65b, 0 6px 22px 2px rgba(227,92,24,0.25), 0 1px 14px 0 rgba(243,163,20,0.10);
+  border-color: #fdbb4b;
+  transform: translateY(-5px) scale(1.025);
+}
+
+/* Focus style (for keyboard navigation) */
+.game-card:focus-visible {
+  outline: 2.5px solid var(--kavia-orange, #E87A41);
+  border-color: #E87A41;
+}
+
+.game-card-cover {
+  border-radius: 13px;
+  object-fit: cover;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 18px 1px rgba(100,50,120,0.13);
+  width: 136px;
+  height: 136px;
+  background: #0b0b14;
+  border: 1.3px solid var(--border-color, #fff3);
+  pointer-events: none;
+  user-select: none;
+}
+
+.game-card-title {
+  font-size: 1.09rem;
+  font-family: 'Inter','Arial',sans-serif;
+  font-weight: 600;
+  color: #fff;
+  margin-top: 2px;
+  margin-bottom: 6px;
+  text-align: center;
+}
+
+.game-card-price {
+  font-size: 1.12rem;
+  color: #ffd780;
+  font-weight: 500;
+  text-align: center;
+  letter-spacing: 0.03em;
+  margin-bottom: 14px;
+}
+
+.game-card-action {
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+}
+
+.game-card-buy-btn {
+  background: linear-gradient(98deg, #E87A41 52%, #f0ae71 100%);
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  padding: 9px 22px;
+  font-size: 1.07rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.20s, box-shadow 0.20s, color 0.16s;
+  box-shadow: 0 1px 8px 0 rgba(90,45,9,0.17);
+  margin-top: 0;
+  opacity: 0.95;
+}
+
+.game-card-buy-btn:disabled {
+  background: linear-gradient(98deg, #bfa17b 72%, #a17c45 100%);
+  cursor: not-allowed;
+  color: #3a3221;
+  opacity: 0.7;
+}
+
+.game-card-buy-btn:hover:not(:disabled) {
+  background: #FF8B4D;
+  color: #fff8ea;
+  box-shadow: 0 0 0 2.5px #ffd893, 0 3px 10px 1px #ffcc912c;
+}
+
+/* Responsive grid for mobile/tablet */
+@media (max-width: 900px) {
+  .games-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px 12px;
+    padding-left: 0; padding-right: 0;
+  }
+  .game-card {
+    padding: 13px 2vw 13px 2vw;
+    min-height: 270px;
+    height: 278px;
+  }
+  .game-card-cover {
+    width: 110px;
+    height: 110px;
+  }
+}
+
+
+/* --- COPYRIGHT BAR --- */
+.copyright-bar {
+  width: 100vw;
+  padding: 12px 0 8px 0;
+  text-align: center;
+  color: var(--text-secondary, #d4d4d4);
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+  background: linear-gradient(100deg,rgba(22,28,38,0.77) 82%,rgba(60,64,138,0.09) 99%);
+  border-top: 1.3px solid var(--border-color, #432c34);
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 120;
+  font-family: 'Inter', 'Arial', sans-serif;
+  backdrop-filter: blur(4px);
+  user-select: none;
+}
+
+/* Prevent copyright from covering main on very small screens */
+@media (max-width: 520px) {
+  .copyright-bar {
+    font-size: 0.92rem;
+    padding: 10px 0 6px 0;
+  }
+  .games-page-main {
+    padding-bottom: 51px;
+  }
+}
