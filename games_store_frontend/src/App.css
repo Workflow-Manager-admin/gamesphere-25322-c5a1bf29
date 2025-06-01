@@ -1,5 +1,5 @@
 :root {
-  --primary-color: #2121ab;
+  --primary-color: #9595bb;
   --secondary-color: #16213e;
   --accent-color: #c4abab;
   --kavia-orange: #E87A41;
@@ -108,4 +108,265 @@ body {
 .btn-large {
   padding: 12px 24px;
   font-size: 1.1rem;
+}
+
+/* LOGIN/SIGN-IN BOX & AUTH FORMS */
+.auth-center-container {
+  min-height: calc(100vh - 128px);
+  background: var(--primary-color, #2121ab);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 30px;
+}
+
+.login-card {
+  background: var(--secondary-color, #16213e);
+  border-radius: 18px;
+  border: 2.5px solid var(--primary-color, #2121ab);
+  box-shadow: 0 7px 28px 0 rgba(30, 13, 65, 0.25);
+  min-width: 340px;
+  width: 350px;
+  max-width: 95vw;
+  padding: 38px 38px 34px 38px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  position: relative;
+}
+@media (max-width: 430px) {
+  .login-card {
+    min-width: unset;
+    width: 98vw;
+    padding: 18px 7px 14px 7px;
+    border-radius: 13px;
+  }
+}
+
+.login-mode-buttons {
+  display: flex;
+  margin-bottom: 28px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 9px 0 #0007;
+}
+.login-mode-btn {
+  flex: 1;
+  font-weight: 700;
+  font-size: 1.09rem;
+  border: none;
+  padding: 12px 0;
+  transition: background 0.18s, color 0.18s;
+  cursor: pointer;
+  outline: none;
+  background: transparent;
+  color: var(--accent-color, #c4abab);
+}
+.login-mode-btn.active {
+  background: var(--kavia-orange, #E87A41);
+  color: #fff;
+  cursor: default;
+}
+.login-mode-btn:not(.active):hover, .login-mode-btn:not(.active):focus {
+  background: #3b374d;
+  color: var(--kavia-orange, #E87A41);
+}
+
+.auth-form-label {
+  color: #eee;
+  font-weight: 500;
+  margin-bottom: 2px;
+  font-size: 1.01rem;
+  display: block;
+}
+.auth-form-input {
+  margin: 7px 0 18px 0;
+  padding: 10px;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  border: 2px solid var(--primary-color, #2121ab);
+  outline: none;
+  background: #25254a;
+  color: #fff;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border 0.17s;
+}
+.auth-form-input:focus {
+  border: 2.5px solid var(--kavia-orange, #E87A41);
+  background: #202037;
+}
+.auth-form-title {
+  color: #fff;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.32rem;
+  margin: 0 0 16px 0;
+  letter-spacing: 0.01em;
+}
+.auth-form-error {
+  background: #b11b1bc2;
+  color: white;
+  margin: 6px 0 12px 0;
+  border-radius: 6px;
+  padding: 8px 0;
+  font-size: 1rem;
+  text-align: center;
+}
+.auth-form-switch {
+  color: var(--text-secondary, #aaa);
+  font-size: 0.97rem;
+  text-align: center;
+  margin-top: 20px;
+}
+.auth-form-switch-btn {
+  color: var(--kavia-orange, #E87A41);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  font-weight: 600;
+  outline: none;
+  font-size: 1.01rem;
+  margin-left: 4px;
+  padding: 0;
+}
+.auth-form-switch-btn:hover, .auth-form-switch-btn:focus {
+  color: #ff994a;
+}
+
+/* --- GAMES PAGE GRID & GAME CARDS --- */
+.games-page-container {
+  min-height: calc(100vh - 128px);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 62px;
+  color: #fff;
+  background: var(--primary-color, #2121ab);
+}
+.games-grid-title {
+  font-size: 2rem;
+  margin-bottom: 18px;
+  color: #fff;
+  font-family: inherit;
+  letter-spacing: 0.01em;
+}
+.games-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 34px;
+  max-width: 1150px;
+  margin: 0 auto;
+  padding-bottom: 32px;
+  box-sizing: border-box;
+}
+@media (max-width: 1110px) {
+  .games-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 900px) {
+  .games-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+    max-width: 700px;
+  }
+}
+@media (max-width: 600px) {
+  .games-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    max-width: 98vw;
+  }
+}
+
+.game-card {
+  background: var(--secondary-color, #16213e);
+  border-radius: 18px;
+  border: 2px solid var(--primary-color, #2121ab);
+  box-shadow: 0 8px 32px 0 rgba(20,8,54,0.30);
+  padding: 24px 22px 18px 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 335px;
+  position: relative;
+  transition: border-color 0.2s, box-shadow 0.22s, transform 0.13s;
+  cursor: pointer;
+}
+
+/* hover/active for game cards */
+.game-card:hover, .game-card:focus-within {
+  border-color: var(--kavia-orange, #E87A41);
+  box-shadow: 0 16px 50px 0 rgba(232,122,65,0.18), 0 2px 22px 0 #201b38;
+  transform: translateY(-3px) scale(1.028);
+  z-index: 1;
+}
+
+.game-card-cover {
+  width: 128px;
+  height: 168px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px 0 #000c;
+  margin-bottom: 15px;
+  background: #312a53;
+  border: 1.5px solid var(--accent-color, #c4abab);
+  display: block;
+}
+@media (max-width: 500px) {
+  .game-card-cover {
+    width: 90px;
+    height: 120px;
+  }
+}
+
+.game-card-title {
+  font-weight: 700;
+  font-size: 1.14rem;
+  text-align: center;
+  color: var(--accent-color, #c4abab);
+  margin-bottom: 7px;
+  min-height: 39px;
+}
+
+.game-card-price {
+  margin: 13px 0 18px 0;
+  font-weight: 600;
+  letter-spacing: 1.3px;
+  color: #f1f1f1;
+}
+
+.game-card-action {
+  width: 90%;
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+}
+.game-card-buy-btn {
+  width: 100%;
+  padding: 11px 0;
+  border-radius: 7px;
+  border: none;
+  font-weight: bold;
+  font-size: 1.09rem;
+  background: var(--kavia-orange, #E87A41);
+  color: #fff;
+  cursor: not-allowed;
+  opacity: 0.97;
+  box-shadow: 0 1px 9px 0 #0007;
+  transition: background 0.14s, color 0.11s;
+}
+.game-card-buy-btn:active,
+.game-card-buy-btn:focus {
+  background: #ff994a;
+  color: #eee;
+  outline: 2.5px solid var(--accent-color, #c4abab);
+}
+.game-card-buy-btn:not([disabled]):hover {
+  background: #ff994a;
 }
