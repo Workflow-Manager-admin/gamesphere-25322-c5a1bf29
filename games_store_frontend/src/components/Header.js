@@ -7,7 +7,7 @@ function Header() {
     <header
       style={{
         width: "100%",
-        background: "var(--primary-color, #2121ab)",
+        background: "#000",
         color: "var(--text-color, #fff)",
         padding: "24px 0 8px 0",
         textAlign: "center",
