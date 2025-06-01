@@ -52,98 +52,43 @@ function LoginPage() {
   }
 
   return (
-    <div
-      style={{
-        minHeight: "calc(100vh - 128px)",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        background: "var(--primary-color, #2121ab)",
-        paddingTop: "30px",
-      }}
-    >
+    <div className="auth-center-container">
       <form
         onSubmit={handleSubmit}
-        style={{
-          background: "var(--secondary-color, #16213e)",
-          padding: "36px 38px 32px 38px",
-          borderRadius: "11px",
-          boxShadow: "0 2px 16px 0 rgba(0,0,0,0.14)",
-          display: "flex",
-          flexDirection: "column",
-          minWidth: "335px",
-          maxWidth: "95vw",
-        }}
+        className="login-card"
         autoComplete="off"
         aria-label={mode === "login" ? "Login form" : "Sign in form"}
       >
-        <div style={{
-          display: "flex",
-          gap: 0,
-          marginBottom: "24px",
-          borderRadius: "7px",
-          overflow: "hidden",
-          boxShadow: "0 1px 9px 0 #0004"
-        }}>
+        <div className="login-mode-buttons">
           <button
             type="button"
+            className={`login-mode-btn${mode === "login" ? " active" : ""}`}
             onClick={() => handleModeSwitch("login")}
             disabled={mode === "login"}
-            style={{
-              flex: 1,
-              background: mode === "login" ? "var(--kavia-orange, #E87A41)" : "transparent",
-              color: mode === "login" ? "#fff" : "#c4abab",
-              border: "none",
-              fontWeight: 700,
-              fontSize: "1.08rem",
-              padding: "12px 0",
-              cursor: mode === "login" ? "default" : "pointer",
-              transition: "background 0.2s",
-            }}
             aria-pressed={mode === "login"}
           >
             Login
           </button>
           <button
             type="button"
+            className={`login-mode-btn${mode === "signin" ? " active" : ""}`}
             onClick={() => handleModeSwitch("signin")}
             disabled={mode === "signin"}
-            style={{
-              flex: 1,
-              background: mode === "signin" ? "var(--kavia-orange, #E87A41)" : "transparent",
-              color: mode === "signin" ? "#fff" : "#c4abab",
-              border: "none",
-              fontWeight: 700,
-              fontSize: "1.08rem",
-              padding: "12px 0",
-              cursor: mode === "signin" ? "default" : "pointer",
-              transition: "background 0.2s",
-            }}
             aria-pressed={mode === "signin"}
           >
             Sign In
           </button>
         </div>
-        {mode === "login" && (
-          <h3 style={{
-            color: "#fff",
-            textAlign: "center",
-            fontWeight: 600,
-            margin: "0 0 10px 0"
-          }}>Welcome Back!</h3>
-        )}
-        {mode === "signin" && (
-          <h3 style={{
-            color: "#fff",
-            textAlign: "center",
-            fontWeight: 600,
-            margin: "0 0 10px 0"
-          }}>Create your Arcade Nexus account</h3>
-        )}
-        <label style={{ color: "#eee", fontWeight: 500, marginBottom: 2, fontSize: "1.01rem" }}>
+        <h3 className="auth-form-title">
+          {mode === "login"
+            ? "Welcome Back!"
+            : "Create your Arcade Nexus account"}
+        </h3>
+        <label className="auth-form-label">
           Gamer Name
           <input
             type="text"
+            className="auth-form-input"
             placeholder="Enter your gamer name"
             value={username}
             autoFocus
@@ -151,64 +96,36 @@ function LoginPage() {
             minLength={2}
             maxLength={16}
             onChange={e => setUsername(e.target.value.replace(/\s/g, ""))}
-            style={{
-              margin: "7px 0 18px 0",
-              padding: "10px",
-              fontSize: "1.09rem",
-              borderRadius: "4px",
-              border: "1px solid #444",
-              outline: "none",
-              background: "#25254a",
-              color: "#fff"
-            }}
             aria-label="Gamer name"
           />
         </label>
         {mode === "signin" && (
           <>
-            <label style={{ color: "#eee", fontWeight: 500, marginBottom: 2 }}>
+            <label className="auth-form-label">
               Email
               <input
                 type="email"
+                className="auth-form-input"
                 placeholder="Enter your email address"
                 value={email}
                 required
                 maxLength={32}
                 onChange={e => setEmail(e.target.value.trim())}
-                style={{
-                  margin: "7px 0 18px 0",
-                  padding: "10px",
-                  fontSize: "1.05rem",
-                  borderRadius: "4px",
-                  border: "1px solid #444",
-                  outline: "none",
-                  background: "#25254a",
-                  color: "#fff"
-                }}
                 autoComplete="username"
                 aria-label="Email"
               />
             </label>
-            <label style={{ color: "#eee", fontWeight: 500, marginBottom: 2 }}>
+            <label className="auth-form-label">
               Password
               <input
                 type="password"
+                className="auth-form-input"
                 placeholder="Enter a password"
                 value={password}
                 required
                 minLength={4}
                 maxLength={24}
                 onChange={e => setPassword(e.target.value)}
-                style={{
-                  margin: "7px 0 18px 0",
-                  padding: "10px",
-                  fontSize: "1.05rem",
-                  borderRadius: "4px",
-                  border: "1px solid #444",
-                  outline: "none",
-                  background: "#25254a",
-                  color: "#fff"
-                }}
                 autoComplete="new-password"
                 aria-label="Password"
               />
@@ -216,55 +133,21 @@ function LoginPage() {
           </>
         )}
         {error && (
-          <div style={{
-            background: "#b11b1bc2",
-            color: "white",
-            margin: "6px 0 12px 0",
-            borderRadius: "5px",
-            padding: "7px 0",
-            fontSize: "1rem",
-            textAlign: "center"
-          }}>
-            {error}
-          </div>
+          <div className="auth-form-error">{error}</div>
         )}
         <button
           type="submit"
-          style={{
-            background: "var(--kavia-orange, #E87A41)",
-            color: "#fff",
-            fontWeight: "bold",
-            border: "none",
-            borderRadius: "4px",
-            padding: "11px 0",
-            fontSize: "1.11rem",
-            cursor: "pointer",
-            marginTop: "10px",
-            boxShadow: "0 2px 6px 0 #0006"
-          }}
+          className="btn btn-large"
           aria-label={mode === "login" ? "Log in" : "Sign up"}
+          style={{ marginTop: "12px" }}
         >
           {mode === "login" ? "Log In" : "Sign Up"}
         </button>
         {mode === "login" ? (
-          <div style={{
-            color: "var(--text-secondary, #aaa)",
-            fontSize: "0.96rem",
-            textAlign: "center",
-            marginTop: "18px"
-          }}>
+          <div className="auth-form-switch">
             New here?{" "}
             <button
-              style={{
-                color: "var(--kavia-orange, #E87A41)",
-                background: "none",
-                border: "none",
-                cursor: "pointer",
-                textDecoration: "underline",
-                fontWeight: 600,
-                outline: "none",
-                fontSize: "1rem"
-              }}
+              className="auth-form-switch-btn"
               type="button"
               onClick={() => handleModeSwitch("signin")}
               tabIndex={0}
@@ -273,24 +156,10 @@ function LoginPage() {
             </button>
           </div>
         ) : (
-          <div style={{
-            color: "var(--text-secondary, #aaa)",
-            fontSize: "0.96rem",
-            textAlign: "center",
-            marginTop: "18px"
-          }}>
+          <div className="auth-form-switch">
             Already have an account?{" "}
             <button
-              style={{
-                color: "var(--kavia-orange, #E87A41)",
-                background: "none",
-                border: "none",
-                cursor: "pointer",
-                textDecoration: "underline",
-                fontWeight: 600,
-                outline: "none",
-                fontSize: "1rem"
-              }}
+              className="auth-form-switch-btn"
               type="button"
               onClick={() => handleModeSwitch("login")}
               tabIndex={0}
