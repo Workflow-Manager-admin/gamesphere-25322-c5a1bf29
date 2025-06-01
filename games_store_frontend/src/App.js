@@ -62,6 +62,14 @@ function App() {
                   </PrivateRoute>
                 }
               />
+              <Route
+                path="/confirmation"
+                element={
+                  <PrivateRoute>
+                    <ConfirmationPage />
+                  </PrivateRoute>
+                }
+              />
               {/* Fallback */}
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
