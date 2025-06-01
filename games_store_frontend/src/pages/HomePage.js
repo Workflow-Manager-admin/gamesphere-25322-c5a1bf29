@@ -52,7 +52,25 @@ function HomePage() {
         >
           Welcome&nbsp;Gamers!
         </h1>
-        <div className="homepage-description">
+        <div
+          className="homepage-description times-description"
+          style={{
+            fontFamily: "'Times New Roman', Times, serif",
+            fontWeight: 600,
+            fontSize: "2rem",
+            lineHeight: 1.44,
+            color: "var(--kavia-orange, #E87A41)",
+            maxWidth: 740,
+            margin: "0 auto",
+            padding: "18px 12px 10px 12px",
+            letterSpacing: "0.01em",
+            borderRadius: "14px",
+            background: "rgba(20,22,34,0.56)",
+            boxShadow: "0 5px 30px 2px rgba(34,10,34,0.13), 0 1px 9px 0 rgba(255,164,80,0.06)",
+            border: "1.5px solid var(--border-color, #fff1)",
+            zIndex: 2
+          }}
+        >
           Arcade Nexus is your ultimate destination to discover, explore, and purchase the best games in a true arcade spirit.<br />
           Immerse yourself in a curated universe of top video games&mdash;all in one visually engaging store!
         </div>
