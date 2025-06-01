@@ -165,9 +165,14 @@ function PaymentPage() {
                   value={cardExpiry}
                   required
                   placeholder="MM/YY"
-                  onChange={e => setCardExpiry(
-                    e.target.value.replace(/^(\d\d)(?!\/)/, '$1/').replace(/[^\d/]/g, "").slice(0, 5)
-                  )}
+                  onChange={e =>
+                    setCardExpiry(
+                      e.target.value
+                        .replace(/^(\d\d)(?!\/)/, "$1/")
+                        .replace(/[^\d/]/g, "")
+                        .slice(0, 5)
+                    )
+                  }
                   onBlur={() => setTouched(t => ({ ...t, cardExpiry: true }))}
                   aria-label="Card expiry"
                 />
@@ -175,7 +180,7 @@ function PaymentPage() {
               <label className="auth-form-label" style={{ flex: 1 }}>
                 CVV
                 <input
-                  className="auth-form-input"
+                  className="auth-form-input cvv-input"
                   type="password"
                   maxLength={4}
                   value={cardCVV}
